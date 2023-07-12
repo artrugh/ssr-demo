@@ -1,25 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Router } from "./Router";
+import { Route } from "./Route";
+import Breed from "./pages/breed";
+import Breeds from "./pages/breeds";
 
-function App() {
+function App({ initialPath }: { initialPath: string }) {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router initialPath={initialPath}>
+      <Route path="/breeds">
+        <Breeds></Breeds>
+      </Route>
+      <Route path="/breed">
+        <Breed></Breed>
+      </Route>
+    </Router>
   );
 }
 
